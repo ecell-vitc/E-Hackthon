@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-right">
-          <h3>E-Hackathon 2025</h3>
+          <h3>Founder's Forge 2025</h3>
           <p>Join us in shaping the future of entrepreneurship</p>
           <div className="footer-links">
             <div className="links-column">
@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 E-CELL VIT CHENNAI. All rights reserved.</p>
+        <p>&copy; 2025 E-CELL VIT CHENNAI. All rights reserved.</p>
       </div>
     </footer>
   );
