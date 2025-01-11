@@ -1,10 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-
+import WhoCanParticipate from './components/WhoCanParticipate.jsx'
+import FAQ from './components/FAQ.jsx'
+import WhyParticipate from './components/WhyParticipate.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <WhoCanParticipate />
+    <FAQ />
+    <WhyParticipate />
   </StrictMode>,
 )
