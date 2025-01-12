@@ -1,0 +1,7 @@
+#container { background: radial-gradient(circle at 0 100%, #EE924A, transparent 75%); }
+#days_left { background: linear-gradient(to top right, #EE924A, #E14B7A); }
+
+@media (min-width: 768px) {
+    #container { background: radial-gradient(circle at 100% 50%, #EE924A, transparent 50%) }
+    #days_left { background: linear-gradient(to left, #EE924A, #E14B7A) }
+}
