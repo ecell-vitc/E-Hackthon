@@ -1,0 +1,87 @@
+.sponsor-section {
+  padding: 5rem 2rem;
+  background-color: var(--bg-color);
+}
+
+.sponsor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.split-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.split-title .why {
+  font-family: 'Bruno Ace', cursive;
+  font-size: 3.5rem;
+  color: var(--text-white);
+  margin: 0;
+  line-height: 1;
+}
+
+.split-title .sponsor-us {
+  font-family: 'Bruno Ace', cursive;
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.sponsor-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.sponsor-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sponsor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sponsor-card svg {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.sponsor-card h3 {
+  font-family: 'Bayon', sans-serif;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.sponsor-card p {
+  color: var(--text-white);
+  font-family: 'Bruno Ace', cursive;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .split-title .why,
+  .split-title .sponsor-us {
+    font-size: 2.5rem;
+  }
+  
+  .sponsor-grid {
+    grid-template-columns: 1fr;
+  }
+}

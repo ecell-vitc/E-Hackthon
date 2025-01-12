@@ -1,0 +1,165 @@
+.contact-section {
+  background-color: #0f1117;
+  padding: 4rem 2rem;
+  color: white;
+  text-align: center;
+}
+
+.contact-section h1 {
+  font-family: "Bruno Ace", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: white;
+  font-weight: 600;
+}
+
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.contact-card {
+  background-color: #1a1d25;
+  padding: 2.5rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-card:first-child {
+  width: 550px;
+}
+
+.contact-card:last-child {
+  width: 300px;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: #252832;
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.contact-card h2 {
+  font-family: "Bayon",'sans serif';
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.contact-info {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex: 1;
+  margin-top: 0.5rem;
+}
+
+.contact-person {
+  flex: 1;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+}
+
+.contact-person:first-child::after {
+  content: '';
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #2a2d35, transparent);
+}
+
+.contact-person h3 {
+  font-family: "Bayon",'sans-serif';
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.designation {
+  color: #FC8C2E;
+  font-family: "Bruno Ace",cursive;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.phone, .email {
+  color: #9ca3af;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.phone:hover, .email:hover {
+  color: #ffffff;
+}
+
+.email {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .contact-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .contact-card,
+  .contact-card:first-child,
+  .contact-card:last-child {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-person {
+    padding: 1rem 0;
+  }
+
+  .contact-person:first-child::after {
+    right: 0;
+    top: unset;
+    bottom: 0;
+    transform: none;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #2a2d35, transparent);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section h1 {
+    font-size: 2rem;
+  }
+
+  .contact-card {
+    padding: 2rem;
+  }
+}
