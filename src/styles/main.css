@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    margin: 0; padding: 0;
+    
+    background-color: #0C101F;
+    color: #a2a4ab;
+    font-family: "DM Sans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
+
+.text-primary { color: #B7DFBB }
+
+.coustard-regular {
+    font-family: "Coustard", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.coustard-black {
+    font-family: "Coustard", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.bruno-regular {
+    font-family: "Bruno Ace", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button.primary, a.primary {
+    transition: background-color 0.2s linear;
+    background-color: #F98A3C;
+    color: #441F0E;
+    border-radius: 10px
+}
+
+button.primary { padding: 15px 30px; }
+
+button.primary:hover, a.primary:hover {
+    background-color: #ffb47e;
+}
