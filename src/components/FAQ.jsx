@@ -2,7 +2,6 @@ import React, { useState, memo } from 'react';
 import { 
   Box, 
   Typography, 
-  Container, 
   Grid, 
   Accordion, 
   AccordionSummary, 
@@ -13,17 +12,15 @@ import {
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-// Constants for colors
 const PRIMARY_COLOR = '#FFB26B';
 const SECONDARY_COLOR = '#FF7B54';
 const BACKGROUND_COLOR = 'rgba(26, 31, 53, 0.6)';
 const TEXT_COLOR = '#B8BCCB';
 
-// Styled Accordion Component
 const GlassAccordion = styled(Accordion)(({ theme }) => ({
   background: BACKGROUND_COLOR,
   backdropFilter: 'blur(15px)',
-  borderRadius: '16px',
+  borderRadius: '16px !important',
   border: '1px solid rgba(255, 255, 255, 0.05)',
   transition: 'all 0.3s ease-in-out',
   overflow: 'hidden',
@@ -37,7 +34,6 @@ const GlassAccordion = styled(Accordion)(({ theme }) => ({
   },
 }));
 
-// Styled Icon Badge
 const IconBadge = styled(Box)(({ theme }) => ({
   background: `linear-gradient(45deg, ${SECONDARY_COLOR} 30%, ${PRIMARY_COLOR} 90%)`,
   borderRadius: '50%',
@@ -48,29 +44,47 @@ const IconBadge = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   marginRight: '16px',
   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+  '& .number': {
+    color: '#FFFFFF',
+    fontSize: '1.5rem',
+    fontWeight: '700',
+    fontFamily: "'Clash Display', sans-serif",
+  },
 }));
 
-// FAQ Component
+const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+  '& .MuiAccordionSummary-content': {
+    margin: '12px 0',
+    alignItems: 'center',
+  },
+  '& .MuiAccordionSummary-expandIconWrapper': {
+    color: PRIMARY_COLOR,
+    transform: 'rotate(0deg)',
+    transition: 'transform 0.3s',
+    '&.Mui-expanded': {
+      transform: 'rotate(180deg)',
+    },
+  },
+}));
+
 const FAQSection = memo(() => {
   const [expanded, setExpanded] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  // FAQ Data
   const faqs = [
-    { question: "WHO CAN PARTICIPATE IN THE ENTREPRENEUR HACKATHON", answer: "The event is open to tech enthusiasts, aspiring entrepreneurs, students, graduates, industry professionals, and creative problem-solvers. Participants can join as individuals or in teams of up to 3 members." },
-    { question: "WHAT IS THE REGISTRATION FEE?", answer: "The registration fee is ₹250 per team. Each team can consist of up to three members." },
-    { question: "WHAT ARE THE PRIZES FOR THE WINNERS?", answer: "The 1st prize winner will receive ₹30,000, the 2nd prize winner will receive ₹20,000, and the 3rd prize winner will receive ₹10,000." },
-    { question: "DO I NEED TO HAVE A STARTUP IDEA TO PARTICIPATE?", answer: "No, you don't need to have a startup idea. The hackathon is for anyone passionate about innovation and solving business challenges." },
-    { question: "CAN I PARTICIPATE IF I DON'T HAVE CODING SKILLS?", answer: "Yes! The hackathon is open to people with various skill sets, including business, design, and marketing." },
-    { question: "WHAT IS THE FORMAT OF THE HACKATHON?", answer: "Participants will work in teams to create solutions to real-world business problems. There will be mentorship, and at the end, teams will pitch their ideas to a panel of judges." },
-    { question: "HOW ARE THE TEAMS FORMED?", answer: "You can form teams ahead of the event or network with other participants to form teams during the hackathon." },
-    { question: "DO I NEED TO BRING ANYTHING TO THE EVENT?", answer: "Bring your laptop, chargers, and any other materials you'll need for a day of collaboration. Necessary tools and resources will be provided." },
-    { question: "HOW WILL THE PROJECTS BE JUDGED?", answer: "Projects will be judged based on innovation, feasibility, impact, and overall quality. A panel of industry experts will evaluate the solutions." },
-    { question: "WHEN IS THE REGISTRATION DEADLINE?", answer: "Please refer to the event website for specific registration deadlines and more details." }
+    { question: "Who can participate in the entrepreneur hackathon?", answer: "The event is open to tech enthusiasts, aspiring entrepreneurs, students, graduates, industry professionals, and creative problem-solvers. Participants can join as individuals or in teams of up to 3 members." },
+    { question: "What is the registration fee?", answer: "Please refer to the event website for specific registration deadlines and more details." },
+    { question: "What are the prizes for the winners?", answer: "The 1st prize winner will receive ₹30,000, the 2nd prize winner will receive ₹20,000, and the 3rd prize winner will receive ₹10,000." },
+    { question: "Do I need to have a startup idea to participate?", answer: "No, you don't need to have a startup idea. The hackathon is for anyone passionate about innovation and solving business challenges." },
+    { question: "Can I participate if I don't have coding skills?", answer: "Yes! The hackathon is open to people with various skill sets, including business, design, and marketing." },
+    { question: "What is the format of the hackathon?", answer: "Participants will work in teams to create solutions to real-world business problems. There will be mentorship, and at the end, teams will pitch their ideas to a panel of judges." },
+    { question: "How are the teams formed?", answer: "You can form teams ahead of the event or network with other participants to form teams during the hackathon." },
+    { question: "Do I need to bring anything to the event?", answer: "Bring your laptop, chargers, and any other materials you'll need for a day of collaboration. Necessary tools and resources will be provided." },
+    { question: "How will the projects be judged?", answer: "Projects will be judged based on innovation, feasibility, impact, and overall quality. A panel of industry experts will evaluate the solutions." },
+    { question: "When is the registration deadline?", answer: "Please refer to the event website for specific registration deadlines and more details." }
   ];
 
-  // Accordion expansion handler
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -79,7 +93,9 @@ const FAQSection = memo(() => {
     <Box
       sx={{
         minHeight: '100vh',
-        py: { xs: 4, md: 8 },
+        py: { xs: 2, md: 4 },
+        px: { xs: 2, sm: 4 },
+        overflow: 'hidden',
         background: 'linear-gradient(135deg, #0A0C1B 0%, #1A1F35 100%)',
         backgroundImage: `
           radial-gradient(circle at 90% 10%, rgba(255, 123, 84, 0.1) 0%, transparent 40%),
@@ -87,9 +103,23 @@ const FAQSection = memo(() => {
         `,
       }}
     >
-      <Container maxWidth="xl">
-        {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 }, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Box
+        sx={{
+          px: { xs: 2, md: 8 },
+          overflow: 'hidden',
+          mx: 'auto',
+          maxWidth: '1600px',
+        }}
+      >
+        <Box
+          sx={{
+            textAlign: 'center',
+            mb: { xs: 4, md: 6 },
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
           <Typography
             variant="h2"
             component="h1"
@@ -108,41 +138,22 @@ const FAQSection = memo(() => {
           </Typography>
         </Box>
 
-        {/* FAQ Grid */}
-        <Grid container spacing={isMobile ? 2 : 4} sx={{ maxWidth: '1600px', mx: 'auto' }}>
+        <Grid container spacing={isMobile ? 2 : 4}>
           {faqs.map((faq, index) => (
             <Grid item xs={12} md={6} key={index}>
-              <GlassAccordion expanded={expanded === `panel-${index}`} onChange={handleChange(`panel-${index}`)}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: PRIMARY_COLOR, fontSize: '1.5rem' }} />}
+              <GlassAccordion 
+                expanded={expanded === `panel-${index}`} 
+                onChange={handleChange(`panel-${index}`)}
+              >
+                <StyledAccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
                   aria-controls={`panel-${index}-content`}
                   id={`panel-${index}-header`}
-                  sx={{
-                    alignItems: 'center',
-                    position: 'relative',
-                    '& .MuiAccordionSummary-content': { alignItems: 'center', margin: '12px 0' }
-                  }}
                 >
-                  {/* Question Number */}
-                  <Typography 
-                    variant="body2" 
-                    sx={{ 
-                      position: 'absolute',
-                      left: -40,
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      color: `${PRIMARY_COLOR}80`,
-                      fontWeight: 'bold',
-                      fontSize: '2rem',
-                      display: { xs: 'none', md: 'block' }
-                    }}
-                  >
-                    {index + 1}
-                  </Typography>
-
                   <IconBadge>
-                    {/* No Icon now */}
+                    <span className="number">{index + 1}</span>
                   </IconBadge>
+
                   <Typography
                     variant="h6"
                     sx={{
@@ -153,7 +164,7 @@ const FAQSection = memo(() => {
                   >
                     {faq.question}
                   </Typography>
-                </AccordionSummary>
+                </StyledAccordionSummary>
                 <AccordionDetails>
                   <Typography
                     variant="body1"
@@ -171,7 +182,7 @@ const FAQSection = memo(() => {
             </Grid>
           ))}
         </Grid>
-      </Container>
+      </Box>
     </Box>
   );
 });

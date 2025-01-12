@@ -2,7 +2,6 @@ import React from 'react';
 import { 
   Box, 
   Typography, 
-  Container, 
   Grid, 
   Card, 
   CardContent,
@@ -61,7 +60,6 @@ const WhyParticipate = () => {
       title: "Build Your Portfolio",
       description: "Work on a real-world project that adds value to your resume and showcases your skills to future employers."
     },
-  
     {
       icon: <Rocket size={24} />,
       title: "Kickstart Your Startup Journey",
@@ -79,54 +77,58 @@ const WhyParticipate = () => {
       sx={{
         minHeight: '100vh',
         py: 8,
+        px: { xs: 2, sm: 4 },
         background: 'linear-gradient(135deg, #0A0C1B 0%, #1A1F35 100%)',
         backgroundImage: `radial-gradient(circle at 10% 90%, rgba(255, 123, 84, 0.1) 0%, transparent 40%)`,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
-      <Container maxWidth="xl">
-        <Box textAlign="center" mb={8}>
-          <Typography
-            variant="h2"
-            component="h1"
-            sx={{
-              mb: 3,
-              fontWeight: 700,
-              fontFamily: "'Clash Display', sans-serif",
-              background: 'linear-gradient(45deg, #FFFFFF 30%, #FFB26B 90%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-            }}
-          >
-            Why Participate
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              maxWidth: '800px',
-              mx: 'auto',
-              px: 3,
-              color: '#A0A3B1',
-              fontSize: { xs: '1rem', md: '1.2rem' },
-              lineHeight: 1.6,
-            }}
-          >
-            Discover the incredible opportunities and benefits awaiting you at our hackathon
-          </Typography>
-        </Box>
+      <Box textAlign="center" mb={8} maxWidth="800px">
+        <Typography
+          variant="h2"
+          component="h1"
+          sx={{
+            mb: 3,
+            fontWeight: 700,
+            fontFamily: "'Clash Display', sans-serif",
+            background: 'linear-gradient(45deg, #FFFFFF 30%, #FFB26B 90%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            fontSize: { xs: '2.5rem', md: '3.5rem' },
+          }}
+        >
+          Why Participate
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            px: 3,
+            color: '#A0A3B1',
+            fontSize: { xs: '1rem', md: '1.2rem' },
+            lineHeight: 1.6,
+          }}
+        >
+          Discover the incredible opportunities and benefits awaiting you at our hackathon
+        </Typography>
+      </Box>
 
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: '1600px',
+          px: { xs: 2, sm: 4 },
+        }}
+      >
         <Grid 
           container 
-          spacing={4} 
-          sx={{
-            maxWidth: '1600px',
-            mx: 'auto',
-          }}
+          spacing={4}
         >
           {benefits.map((benefit, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <StyledCard>
-                <CardContent sx={{ p: 4 }}>
+                <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
                   <IconWrapper>
                     {React.cloneElement(benefit.icon, { 
                       color: 'white',
@@ -160,7 +162,7 @@ const WhyParticipate = () => {
             </Grid>
           ))}
         </Grid>
-      </Container>
+      </Box>
     </Box>
   );
 };
